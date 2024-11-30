@@ -103,8 +103,22 @@ int consulta()
 
 int deletar()
 {
-	printf("Voce escolheu deletar nomes! \n");
-			system("pause");
+	char cpf[40];
+	
+	printf("Digite o cpf a ser deletado:");
+	scanf("%s",cpf);
+	
+	remove(cpf);
+    
+    FILE *file;
+    file = fopen(cpf,"r");
+    
+    if(file == NULL );
+    {
+    	printf("O usuario nao se encontra no sistema!. \n");
+    	system("pause");
+    }
+			
 }
 
 
@@ -127,16 +141,18 @@ int main ()
 		printf("\t1 - Registrar nomes\n");
 		printf("\t2 - Consultar nomes\n");
 		printf("\t3 - Deletar nomes \n\n");
-		printf("Opçao: "); //fin do menu
+		printf("\t4 - sair do sistema \n\n ");
+	
+	 //fin do menu
 	
 		scanf("%d",&opcao );
 	
 		system("cls");
 
 
-		switch(opcao)
+		switch(opcao) //inicio da selecao do menu
 		{
-			case 1:
+		    case 1:
 			registro();
 			break;
 				
@@ -148,6 +164,10 @@ int main ()
 			deletar();	
 			break;
 			
+			case 4:
+			printf("obrigado por utilizar o sistema\n");
+			return 0;
+			break;
 			
 	
 			
